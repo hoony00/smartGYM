@@ -32,9 +32,21 @@ dependencies:
     sdk: flutter
 
 
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.2
+  # 로그 출력 패키지
+  logger:
+
+  #util
+  velocity_x: ^4.1.1
+
+  #ui - resource
+  google_fonts: ^4.0.4 #폰트
+  easy_localization:  #다중언어
+  flutter_cache_manager: ^3.3.0 #캐시지우기 기능
+
+  #app setting
+  app_settings: ^5.0.0 #어플 설정 열기
+
+
 
 dev_dependencies:
   flutter_test:
