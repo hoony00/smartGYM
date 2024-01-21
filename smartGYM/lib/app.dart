@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gym_app/page/home/home.dart';
 import 'package:gym_app/page/main_page.dart';
 import 'package:nav/nav.dart';
 
@@ -15,7 +16,6 @@ class App extends StatefulWidget {
 class _AppState extends State<App> with Nav, WidgetsBindingObserver {
 
   @override
-  // TODO: implement navigatorKey
   GlobalKey<NavigatorState> get navigatorKey => App.navigatorKey;
 
   @override
@@ -37,7 +37,7 @@ class _AppState extends State<App> with Nav, WidgetsBindingObserver {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(),
-      home: MainPage(title: 'Flutter Demo Home Page'),
+      home: HomePage(),
     );
   }
 
