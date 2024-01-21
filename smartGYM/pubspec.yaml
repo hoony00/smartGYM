@@ -43,6 +43,11 @@ dependencies:
   easy_localization:  #다중언어
   flutter_cache_manager: ^3.3.0 #캐시지우기 기능
 
+  #ui - widget
+  nav: ^1.3.9
+  flutter_svg: ^2.0.3
+
+
   #app setting
   app_settings: ^5.0.0 #어플 설정 열기
 

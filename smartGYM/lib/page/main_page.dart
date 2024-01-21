@@ -28,6 +28,7 @@ class _MainPageState extends State<MainPage> {
 
           },
           child: Line(
+
             color: Colors.red,
           ),
         ),
