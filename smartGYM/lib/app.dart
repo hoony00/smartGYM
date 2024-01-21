@@ -16,7 +16,7 @@ class _AppState extends State<App> with Nav, WidgetsBindingObserver {
 
   @override
   // TODO: implement navigatorKey
-  GlobalKey<NavigatorState> get navigatorKey => throw UnimplementedError();
+  GlobalKey<NavigatorState> get navigatorKey => App.navigatorKey;
 
   @override
   void initState() {
