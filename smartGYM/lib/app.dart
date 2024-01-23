@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:gym_app/page/home/home.dart';
 import 'package:gym_app/page/main_page.dart';
+import 'package:gym_app/page/test_page.dart';
+import 'package:gym_app/page/test_page2.dart';
+import 'package:gym_app/page/test_page_son.dart';
 import 'package:nav/nav.dart';
 
 class App extends StatefulWidget {
@@ -14,7 +18,6 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> with Nav, WidgetsBindingObserver {
-
   @override
   GlobalKey<NavigatorState> get navigatorKey => App.navigatorKey;
 
@@ -30,14 +33,42 @@ class _AppState extends State<App> with Nav, WidgetsBindingObserver {
     super.dispose();
   }
 
-
+  final GoRouter _router = GoRouter(
+    routes: [
+      GoRoute(
+        name: 'home',
+        path: '/',
+        builder: (context, state) => const HomePage(),
+      ),
+      GoRoute(
+        path: '/test',
+        name: 'test',
+        builder: (context, state) => const TestPage(),
+        routes: [
+          GoRoute(
+            path: 'testson',
+            name: 'testson',
+            builder: (context, state) {
+              state.pathParameters['id'] = (state.extra as Map<String, dynamic>)['test'];
+              return const TestPageSon();
+            },
+          ),
+        ],
+      ),
+      GoRoute(
+        path: '/sectest',
+        name: 'sectest',
+        builder: (context, state) => const SecTestPage(),
+      ),
+    ],
+  );
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
+      routerConfig: _router,
       title: 'Flutter Demo',
       theme: ThemeData(),
-      home: HomePage(),
     );
   }
 
@@ -57,6 +88,4 @@ class _AppState extends State<App> with Nav, WidgetsBindingObserver {
     }
     super.didChangeAppLifecycleState(state);
   }
-
-
 }

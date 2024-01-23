@@ -36,7 +36,11 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Column(
         children: [
-          ElevatedButton(onPressed: ()=> context.pushNamed('test'), child: const Text('test')),
+          // go로 이동시 replace
+          // push로 이동시 스택 추가
+          ElevatedButton(onPressed: ()=> context.push('/test'), child: const Text('test')),
+          ElevatedButton(onPressed: ()=> context.go('/test/testson', extra: {"test" : "넘기는 값입니다."}), child: const Text('testson')),
+          ElevatedButton(onPressed: ()=> context.pushNamed('sectest'), child: const Text('sectest')),
           Expanded(child: GymMachineList(machines: machines)),
         ],
       ),
