@@ -34,15 +34,30 @@ class _AppState extends State<App> with Nav, WidgetsBindingObserver {
   }
 
   final GoRouter _router = GoRouter(
-    errorBuilder: (context, state) {
-      return const Scaffold(
-        body: Center(
-          child: Text(
-            '페이지가 삭제되거나 유효하지 않습니다.',
-            style: TextStyle(color: Colors.red),
+    errorPageBuilder: (context, state) {
+      return MaterialPage(child: Scaffold(
+        appBar: AppBar(
+          title: const Text('Error'),
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () => context.go('/'),
           ),
         ),
-      );
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text(
+                '페이지가 삭제되거나 유효하지 않습니다.',
+              ),
+              const SizedBox(height: 20),
+              ElevatedButton(onPressed: () {
+                context.go('/');
+              }, child: const Text('홈으로 이동')),
+            ],
+          ),
+        ),
+      ));
     },
     routes: [
       GoRoute(
@@ -59,16 +74,20 @@ class _AppState extends State<App> with Nav, WidgetsBindingObserver {
             path: 'testson',
             name: 'testson',
             builder: (context, state) {
-              state.pathParameters['id'] = (state.extra as Map<String, dynamic>)['test'];
+              //   state.pathParameters['id'] = (state.extra as Map<String, dynamic>)['test'];
               return const TestPageSon();
             },
           ),
         ],
       ),
       GoRoute(
-        path: '/sectest',
-        name: 'sectest',
-        builder: (context, state) => const SecTestPage(),
+          path: '/sectest',
+          name: 'sectest',
+          builder: (context, state) {
+            String temp =  (state.extra as Map<String, dynamic>)['sectest'];
+            print("temp : $temp");
+            return  SecTestPage(temp: temp);
+          },
       ),
     ],
   );
@@ -79,7 +98,7 @@ class _AppState extends State<App> with Nav, WidgetsBindingObserver {
       routerConfig: _router,
       title: 'Flutter Demo',
       theme: ThemeData(),
-    //  debugShowMaterialGrid: true, -> 그리드로 디자인 보여줌
+      //  debugShowMaterialGrid: true, -> 그리드로 디자인 보여줌
     );
   }
 
