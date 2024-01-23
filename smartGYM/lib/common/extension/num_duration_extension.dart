@@ -2,9 +2,9 @@
 /// num(즉, int 및 double)에 확장을 추가하여 간단하게 시간 간격을 생성할 수 있는 기능을 제공
 ///
 /// ```
-/// 200.ms // equivalent to Duration(milliseconds: 200)
-/// 3.seconds // equivalent to Duration(milliseconds: 3000)
-/// 1.5.days // equivalent to Duration(hours: 36)
+/// 200.ms // equivalent to Duration(milliseconds: 200) => 0.2초
+/// 3.seconds // equivalent to Duration(milliseconds: 3000) => 3초
+/// 1.5.days // equivalent to Duration(hours: 36) => 1.5일 
 /// ```
 
 extension NumDurationExtension on num {
@@ -28,6 +28,7 @@ extension NumDurationExtension on num {
 
   // 일 간격을 나타내는 Duration 객체를 반환합니다.
   Duration get days => (this * 1000 * 1000 * 60 * 60 * 24).microseconds;
+
 }
 
   // 확장(extension)을 이용한 예시
