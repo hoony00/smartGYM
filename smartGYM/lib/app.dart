@@ -34,6 +34,16 @@ class _AppState extends State<App> with Nav, WidgetsBindingObserver {
   }
 
   final GoRouter _router = GoRouter(
+    errorBuilder: (context, state) {
+      return const Scaffold(
+        body: Center(
+          child: Text(
+            '페이지가 삭제되거나 유효하지 않습니다.',
+            style: TextStyle(color: Colors.red),
+          ),
+        ),
+      );
+    },
     routes: [
       GoRoute(
         name: 'home',
@@ -69,6 +79,7 @@ class _AppState extends State<App> with Nav, WidgetsBindingObserver {
       routerConfig: _router,
       title: 'Flutter Demo',
       theme: ThemeData(),
+    //  debugShowMaterialGrid: true, -> 그리드로 디자인 보여줌
     );
   }
 
