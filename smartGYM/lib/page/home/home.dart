@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../model/machine_data.dart';
 import 'gym_item.dart';
@@ -31,9 +32,14 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Gym App'),
+        title: const Text('Gym App'),
       ),
-      body: GymMachineList(machines: machines),
+      body: Column(
+        children: [
+          ElevatedButton(onPressed: ()=> context.pushNamed('test'), child: const Text('test')),
+          Expanded(child: GymMachineList(machines: machines)),
+        ],
+      ),
     );
   }
 }
