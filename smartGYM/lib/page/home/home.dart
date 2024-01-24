@@ -16,21 +16,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<GymMachineItem> machines = [
-    GymMachineItem(
-      id: '1',
-      name: '밴치 프레스',
-      totalSlots: 18 * 5, // 18시간 * 5명
-      reservedSlots: List<int>.filled(18, 0), // 각 시간별로 초기화
-    ),
-    GymMachineItem(
-      id: '2',
-      name: '렛풀 다운',
-      totalSlots: 18 * 5, // 18시간 * 5명
-      reservedSlots: List<int>.filled(18, 0), // 각 시간별로 초기화
-    ),
-    // Add more machines as needed
-  ];
+
 
   @override
   Widget build(BuildContext context) {
@@ -82,8 +68,8 @@ Widget buildDateItem(DateTime date) {
         borderRadius: BorderRadius.circular(8.0),
       ),
       child: Text(
-        '${date.month}/${date.day}',
-        style: TextStyle(fontSize: 16.0),
+        '${date.day}일',
+        style: const TextStyle(fontSize: 16.0),
       ),
     ),
   );
