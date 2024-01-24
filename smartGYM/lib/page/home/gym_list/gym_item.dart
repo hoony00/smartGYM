@@ -62,18 +62,18 @@ class _GymMachineListItemState extends State<GymMachineListItem> {
             ),
             const SizedBox(height: 8),
             // 예약 가능 시간 펼치기
-            if (isExpanded) ...buildTimeSlots(),
+            if (isExpanded) ...buildTimeSlots(widget.machine),
           ],
         ),
       ),
     );
   }
 
-  List<Widget> buildTimeSlots() {
-    print("widget.machine.reservedSlots.length : ${widget.machine.reservedSlots.length}");
+  List<Widget> buildTimeSlots(GymMachineItem machine) {
+    print("widget.machine.reservedSlots.length : ${machine.reservedSlots.length}");
     // 예약 가능 시간에 대한 리스트 생성
     List<Widget> timeSlots = [];
-    for (int i = 0; i < widget.machine.reservedSlots.length; i++) {
+    for (int i = 0; i < machine.reservedSlots.length; i++) {
       timeSlots.add(
         ListTile(
           title: Text('예약 가능 시간 $i'),

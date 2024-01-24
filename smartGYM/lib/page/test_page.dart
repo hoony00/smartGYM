@@ -10,10 +10,21 @@ class TestPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('TestPage'),
       ),
-      body: Container(
-        decoration: const BoxDecoration(
-          color: Colors.red,),
-          child: ElevatedButton(onPressed: ()=> context.push('/'), child: const Text('home'))),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          ElevatedButton(
+              onPressed: () => context.push('/'), child: const Text('home')),
+          Container(
+            height: 50,
+            decoration: const BoxDecoration(
+              color: Colors.red,
+            ),
+            child: const Placeholder(),
+          ),
+        ],
+      ),
     );
   }
 }

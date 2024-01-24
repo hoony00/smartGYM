@@ -30,6 +30,7 @@ class _HomePageState extends State<HomePage> {
           // go로 이동시 replace
           // push로 이동시 스택 추가
           Expanded(child: GymMachineList(machines: machines)),
+          ElevatedButton(onPressed: ()=> context.push('/test'), child: const Text('test')),
         ],
       ),
     );
