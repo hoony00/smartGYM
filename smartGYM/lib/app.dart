@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:gym_app/common/extension/context_extension.dart';
 import 'package:gym_app/page/home/home.dart';
 import 'package:gym_app/page/main_page.dart';
 import 'package:gym_app/page/test_page.dart';
@@ -94,11 +96,26 @@ class _AppState extends State<App> with Nav, WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      routerConfig: _router,
-      title: 'Flutter Demo',
-      theme: ThemeData(),
-      //  debugShowMaterialGrid: true, -> 그리드로 디자인 보여줌
+
+    double width = context.deviceWidth;
+    double height = context.deviceHeight;
+
+    print("width : $width");
+    print("height : $height");
+
+    return ScreenUtilInit(
+      designSize: Size(width, height),
+      child: MaterialApp.router(
+        //라우트 상태를 전달해주는 함수
+        routeInformationProvider: _router.routeInformationProvider,
+        // routeInformationParser에서 변환된 값을 어떤 라우트로 보여줄 지 정하는 함수
+        routeInformationParser: _router.routeInformationParser,
+        //URI String을 상태 및 GoRouter에서 사용할 수 있는 형태로 변환해주는 함수
+        routerDelegate: _router.routerDelegate,
+        title: 'Flutter Demo',
+        theme: ThemeData(),
+        //  debugShowMaterialGrid: true, -> 그리드로 디자인 보여줌
+      ),
     );
   }
 
@@ -119,3 +136,12 @@ class _AppState extends State<App> with Nav, WidgetsBindingObserver {
     super.didChangeAppLifecycleState(state);
   }
 }
+
+
+/*
+  현재 라우터를 받아오는 함수
+  final _router = GoRouter.of(context);
+  context.pop(); == Navigator.pop(context)
+*/
+
+

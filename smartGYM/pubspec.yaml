@@ -54,6 +54,12 @@ dependencies:
   #navigation
   go_router: ^13.0.1
 
+  #인앱 리뷰
+  in_app_review: ^2.0.8
+
+  #사이즈 자동
+  flutter_screenutil: ^5.9.0
+
 
 
 dev_dependencies:
