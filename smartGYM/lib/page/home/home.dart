@@ -62,7 +62,7 @@ Widget buildDateItem(DateTime date) {
       print('선택한 날짜: ${date.year}-${date.month}-${date.day}');
     },
     child: Container(
-      padding: EdgeInsets.all(8.0),
+      padding: const EdgeInsets.fromLTRB(4,8,6,8),
       decoration: BoxDecoration(
         border: Border.all(color: Colors.blue),
         borderRadius: BorderRadius.circular(8.0),

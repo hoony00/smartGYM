@@ -1,30 +1,35 @@
 import 'package:flutter/material.dart';
-
 import '../../../model/machine_data.dart';
 
-class GymMachineListItem extends StatelessWidget {
+class GymMachineListItem extends StatefulWidget {
   final GymMachineItem machine;
 
-  GymMachineListItem({required this.machine});
+  const GymMachineListItem({super.key, required this.machine});
+
+  @override
+  _GymMachineListItemState createState() => _GymMachineListItemState();
+}
+
+class _GymMachineListItemState extends State<GymMachineListItem> {
+  bool isExpanded = false;
 
   @override
   Widget build(BuildContext context) {
     return Card(
       color: Colors.white,
       surfaceTintColor: Colors.transparent,
-        elevation: 3,
-        // 그림자의 깊이를 조절하는 elevation 값
-        margin: const EdgeInsets.all(10),
-    shape: RoundedRectangleBorder(
-    borderRadius: BorderRadius.circular(12.0),
-    ),
+      elevation: 3,
+      margin: const EdgeInsets.all(10),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12.0),
+      ),
       child: Container(
         padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              machine.name,
+              widget.machine.name,
               style: const TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
@@ -32,22 +37,53 @@ class GymMachineListItem extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             Text(
-              'Total slots: ${machine.totalSlots}',
+              '남은 예약 : ${widget.machine.totalSlots}',
               style: const TextStyle(
                 fontSize: 16,
               ),
             ),
             const SizedBox(height: 8),
-            Text(
-              'Reserved slots: ${machine.reservedSlots}',
-              style: const TextStyle(
-                fontSize: 16,
-              ),
+            Row(
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      isExpanded = !isExpanded;
+                    });
+                  },
+                  child: Text(
+                    isExpanded ? '예약 가능 시간 닫기 >' : '예약 가능 시간 펼치기 >',
+                    style: const TextStyle(
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ],
             ),
+            const SizedBox(height: 8),
+            // 예약 가능 시간 펼치기
+            if (isExpanded) ...buildTimeSlots(),
           ],
         ),
       ),
-
     );
+  }
+
+  List<Widget> buildTimeSlots() {
+    print("widget.machine.reservedSlots.length : ${widget.machine.reservedSlots.length}");
+    // 예약 가능 시간에 대한 리스트 생성
+    List<Widget> timeSlots = [];
+    for (int i = 0; i < widget.machine.reservedSlots.length; i++) {
+      timeSlots.add(
+        ListTile(
+          title: Text('예약 가능 시간 $i'),
+          // 여기에 예약 가능 시간을 눌렀을 때의 동작 추가
+          onTap: () {
+            print('예약 가능 시간 $i 클릭됨');
+          },
+        ),
+      );
+    }
+    return timeSlots;
   }
 }
