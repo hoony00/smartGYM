@@ -100,9 +100,6 @@ class _AppState extends State<App> with Nav, WidgetsBindingObserver {
     double width = context.deviceWidth;
     double height = context.deviceHeight;
 
-    print("width : $width");
-    print("height : $height");
-
     return ScreenUtilInit(
       designSize: Size(width, height),
       child: MaterialApp.router(
