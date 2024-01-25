@@ -27,15 +27,7 @@ class TestPage extends StatelessWidget {
             ),
             child: const Placeholder(),
           ),
-          const Row(
-            children: [
-              Expanded(
-                child: Text(
-                  "GoRouterSouterouterState.of(ccontexcontexouterState.of(ccontexcontexState.of(ccontexcontexouterState.of(ccontexcontextate.of(ccontexcontexco",
-                ),
-              ),
-            ],
-          ),
+
           ExpansionTile(
               title: Text(
                 '기본 정보',
@@ -103,9 +95,16 @@ class TestPage extends StatelessWidget {
                     ],
                   ),
                 ),
-              ]),
+              ],
+          ),
+          //////////////////////////////////////
+
+
+
+
         ],
       ),
     );
   }
+
 }
