@@ -10,22 +10,26 @@ class RiverView extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final String value = ref.watch(helloWorldProvider);
 
+    ref.listen(counterProvider, (previousState, newState) {
+      print("The new value is $newState");
+    });
+
     return  Scaffold(
       body: Center(
         child: Column(
           children: [
-            Text('Hello world'),
             ElevatedButton(
               onPressed: () {
-                ref.refresh(helloWorldProvider);
+                ref.read(counterProvider.notifier).increment();
               },
-              child: const Text('새로고침'),
+              child: const Text('up'),
             ),
             ElevatedButton(
               onPressed: () {
 
               },
-              child: const Text('수정'),
+             // child:  Text(ref.watch(counterProvider).toString()),
+              child:  Text(ref.watch(counterProvider).toString()),
             ),
           ],
         ),
