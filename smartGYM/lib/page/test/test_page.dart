@@ -37,13 +37,13 @@ class TestPage extends StatelessWidget {
 
 
             ExpansionTile(
-                title: Text(
-                  '기본 정보',
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: context.deviceWidth * (16 / 360),
-                      color: Colors.black),
-                ),
+                title:
+                 '기본 정보'
+                     .text
+                     .bold
+                     .color(Colors.cyan)
+                     .size(context.deviceWidth * (16 / 360))
+                     .make(),
                 initiallyExpanded: true,
                 backgroundColor: Colors.white,
                 children: <Widget>[
@@ -165,7 +165,7 @@ class TestPage extends StatelessWidget {
                       .p4()).swiper(
                   height: context.isMobile ? 200 : 400,
                   enlargeCenterPage: true,
-                  autoPlay: false,
+                  autoPlay: true,
                   onPageChanged: (index) {
                     Vx.log(index);
                   },
@@ -173,8 +173,19 @@ class TestPage extends StatelessWidget {
                   scrollDirection:
                   context.isMobile ? Axis.horizontal : Axis.horizontal),
 
+              /// 이미지
+              "https://avatars0.githubusercontent.com/u/12619420?s=460&u=26db98cbde1dd34c7c67b85c240505a436b2c36d&v=4"
+                  .circularNetworkImage(),
+              /// 경계썬
+              const VxDash(
+                dashLength: 10,
+                dashColor: Colors.red,
+              ),
 
-
+              const VxUnorderedList(
+                ["Disc Item 1", "Disc Item 2"],
+                primary: false,
+              ),
 
             ])
         

@@ -5,6 +5,7 @@ import 'package:gym_app/widget/w_line.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import '../../model/machine_data.dart';
+import '../../model/notification_text.dart';
 import 'gym_list/gym_item.dart';
 import 'package:in_app_review/in_app_review.dart';
 
@@ -21,14 +22,13 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Gym App'),
-      ),
+
       body: Column(
         children: [
           Padding(
             padding: const EdgeInsets.fromLTRB(8, 8, 8, 0),
-            child: '스마트 짐 어플리케이션 '
+            /// 공지사항
+            child:  NotificationText.NOTIFICATION_TITLE
                 .marquee(
                     textStyle: const TextStyle(
                         fontSize: 15,

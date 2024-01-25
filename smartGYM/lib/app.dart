@@ -4,9 +4,10 @@ import 'package:go_router/go_router.dart';
 import 'package:gym_app/common/extension/context_extension.dart';
 import 'package:gym_app/page/home/home.dart';
 import 'package:gym_app/page/main_page.dart';
-import 'package:gym_app/page/test_page.dart';
-import 'package:gym_app/page/test_page2.dart';
-import 'package:gym_app/page/test_page_son.dart';
+import 'package:gym_app/page/riverpod_page/rever_view.dart';
+import 'package:gym_app/page/test/test_page.dart';
+import 'package:gym_app/page/test/test_page2.dart';
+import 'package:gym_app/page/test/test_page_son.dart';
 import 'package:nav/nav.dart';
 
 class App extends StatefulWidget {
@@ -65,7 +66,7 @@ class _AppState extends State<App> with Nav, WidgetsBindingObserver {
       GoRoute(
         name: 'home',
         path: '/',
-        builder: (context, state) => const HomePage(),
+        builder: (context, state) => const MainPage(),
       ),
       GoRoute(
         path: '/test',
