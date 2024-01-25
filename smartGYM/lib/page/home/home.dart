@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:gym_app/widget/w_line.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import '../../model/machine_data.dart';
@@ -36,14 +37,15 @@ class _HomePageState extends State<HomePage> {
                 .backgroundColor(Colors.cyan)
                 .h4(context),
           ),
-          10.heightBox,
           buildDateRow(),
           // go로 이동시 replace
           // push로 이동시 스택 추가
+          const Line(height: 2, color: Colors.cyan,),
           Expanded(child: GymMachineList(machines: machines)),
+
           ElevatedButton(
               onPressed: () => context.push('/test'),
-              child: const Text('test')),
+              child: const Text('이동')),
         ],
       ),
     );
@@ -62,9 +64,12 @@ Widget buildDateRow() {
   }
 
   // Row에 날짜 목록 추가
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-    children: dateWidgets,
+  return Padding(
+    padding: const EdgeInsets.fromLTRB(8,10,8,4),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: dateWidgets,
+    ),
   );
 }
 
