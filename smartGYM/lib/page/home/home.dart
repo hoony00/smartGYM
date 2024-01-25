@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 import '../../model/machine_data.dart';
 import 'gym_list/gym_item.dart';
@@ -16,8 +17,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,11 +25,25 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Column(
         children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(8, 8, 8, 0),
+            child: '스마트 짐 어플리케이션 '
+                .marquee(
+                    textStyle: const TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold),
+                    )
+                .backgroundColor(Colors.cyan)
+                .h4(context),
+          ),
+          10.heightBox,
           buildDateRow(),
           // go로 이동시 replace
           // push로 이동시 스택 추가
           Expanded(child: GymMachineList(machines: machines)),
-          ElevatedButton(onPressed: ()=> context.push('/test'), child: const Text('test')),
+          ElevatedButton(
+              onPressed: () => context.push('/test'),
+              child: const Text('test')),
         ],
       ),
     );
@@ -63,7 +76,7 @@ Widget buildDateItem(DateTime date) {
       print('선택한 날짜: ${date.year}-${date.month}-${date.day}');
     },
     child: Container(
-      padding: const EdgeInsets.fromLTRB(4,8,6,8),
+      padding: const EdgeInsets.fromLTRB(4, 8, 6, 8),
       decoration: BoxDecoration(
         border: Border.all(color: Colors.blue),
         borderRadius: BorderRadius.circular(8.0),
@@ -75,5 +88,3 @@ Widget buildDateItem(DateTime date) {
     ),
   );
 }
-
-

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:velocity_x/velocity_x.dart';
 import '../../../model/machine_data.dart';
 
 class GymMachineListItem extends StatefulWidget {
@@ -28,6 +29,7 @@ class _GymMachineListItemState extends State<GymMachineListItem> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+
             Text(
               widget.machine.name,
               style: const TextStyle(
@@ -35,6 +37,7 @@ class _GymMachineListItemState extends State<GymMachineListItem> {
                 fontWeight: FontWeight.bold,
               ),
             ),
+
             const SizedBox(height: 8),
             Text(
               '남은 예약 : ${widget.machine.totalSlots}',
@@ -60,7 +63,9 @@ class _GymMachineListItemState extends State<GymMachineListItem> {
                 ),
               ],
             ),
-            const SizedBox(height: 8),
+            20.heightBox,
+            20.heightBox,
+
             // 예약 가능 시간 펼치기
             if (isExpanded) ...buildTimeSlots(widget.machine),
           ],
