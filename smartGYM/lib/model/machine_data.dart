@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import '../common/utill/json_converter_util.dart';
+part 'machine_data.g.dart';
 
 
 @JsonSerializable()
@@ -27,6 +28,9 @@ class GymMachineItem {
     required this.reservedSlots,
     required this.createdAt,
   });
+
+  factory GymMachineItem.fromJson(Map<String, dynamic> json) => _$GymMachineItemFromJson(json);
+  Map<String, dynamic> toJson() => _$GymMachineItemToJson(this);
 
 
 
