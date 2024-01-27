@@ -3,6 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final helloWorldProvider = Provider((_) => "Hello RiverPod");
 
+final testIntegerProvider = StateProvider((ref) => 0);
+
 
 final counterProvider = StateNotifierProvider<Counter, int>((ref) {
   return Counter(ref);
@@ -13,7 +15,6 @@ final counterProvider = StateNotifierProvider<Counter, int>((ref) {
 class CounterState {
 
   int count = 0;
-
 
   void copyWith(int? count) {
     this.count = count ?? this.count;
@@ -31,4 +32,10 @@ class Counter extends StateNotifier<int> {
     // Counter 클래스는 다른 프로바이더를 읽기 위해 "ref"를 사용할 수 있습니다.
     state ++;
   }
+
+  void decrease() {
+    // Counter 클래스는 다른 프로바이더를 읽기 위해 "ref"를 사용할 수 있습니다.
+    state --;
+  }
+
 }

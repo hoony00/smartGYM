@@ -9,12 +9,13 @@ class RiverView extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final String value = ref.watch(helloWorldProvider);
+    // final String testValue = ref.watch(testIntegerProvider) as String;
 
     ref.listen(counterProvider, (previousState, newState) {
       print("The new value is $newState");
     });
 
-    return  Scaffold(
+    return Scaffold(
       body: Center(
         child: Column(
           children: [
@@ -22,14 +23,31 @@ class RiverView extends ConsumerWidget {
               onPressed: () {
                 ref.read(counterProvider.notifier).increment();
               },
-              child: const Text('up'),
+              child: const Text(' counter -> up'),
             ),
             ElevatedButton(
               onPressed: () {
-
+                ref.read(counterProvider.notifier).decrease();
               },
-             // child:  Text(ref.watch(counterProvider).toString()),
-              child:  Text(ref.watch(counterProvider).toString()),
+              child: const Text(' counter -> down'),
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              // child:  Text(ref.watch(counterProvider).toString()),
+              child: Text(ref.watch(counterProvider).toString()),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                ref.read(testIntegerProvider.notifier).state += 100;
+              },
+              child: const Text(' testInterger -> up'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                ref.watch(testIntegerProvider.notifier).state = 0;
+              },
+              // child:  Text(ref.watch(counterProvider).toString()),
+              child: Text(ref.watch(testIntegerProvider).toString()),
             ),
           ],
         ),
