@@ -105,6 +105,7 @@ class _AppState extends State<App> with Nav, WidgetsBindingObserver {
     return ScreenUtilInit(
       designSize: Size(width, height),
       child: MaterialApp.router(
+        showPerformanceOverlay: false,
         themeMode: ThemeMode.system,
         //라우트 상태를 전달해주는 함수
         routeInformationProvider: _router.routeInformationProvider,
