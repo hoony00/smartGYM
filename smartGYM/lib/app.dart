@@ -38,7 +38,8 @@ class _AppState extends State<App> with Nav, WidgetsBindingObserver {
 
   final GoRouter _router = GoRouter(
     errorPageBuilder: (context, state) {
-      return MaterialPage(child: Scaffold(
+      return MaterialPage(
+          child: Scaffold(
         appBar: AppBar(
           title: const Text('Error'),
           leading: IconButton(
@@ -104,6 +105,7 @@ class _AppState extends State<App> with Nav, WidgetsBindingObserver {
     return ScreenUtilInit(
       designSize: Size(width, height),
       child: MaterialApp.router(
+        themeMode: ThemeMode.system,
         //라우트 상태를 전달해주는 함수
         routeInformationProvider: _router.routeInformationProvider,
         // routeInformationParser에서 변환된 값을 어떤 라우트로 보여줄 지 정하는 함수

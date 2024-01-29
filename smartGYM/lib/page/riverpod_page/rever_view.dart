@@ -49,6 +49,19 @@ class RiverView extends ConsumerWidget {
               // child:  Text(ref.watch(counterProvider).toString()),
               child: Text(ref.watch(testIntegerProvider).toString()),
             ),
+
+            ElevatedButton(
+              onPressed: () {
+                ref.invalidate(counterProvider);
+              },
+              child:  Text("invalidate"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                ref.refresh(counterProvider);
+              },
+              child:  Text("refresh"),
+            ),
           ],
         ),
       ),
