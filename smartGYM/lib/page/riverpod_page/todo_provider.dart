@@ -12,7 +12,11 @@ class Todo {
 
 class TodoModel{
 
-
+  TodoModel copyWith({
+    required Todo newTodo,
+  }) {
+    return TodoModel(todos: [...todos, newTodo]);
+  }
 
   List<Todo> todos = [];
 
