@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:gym_app/page/riverpod_page/rever_view2.dart';
 import 'package:gym_app/page/riverpod_page/todo_provider.dart';
 import 'package:gym_app/widget/w_line.dart';
 
-class RiverView extends ConsumerWidget {
-  const RiverView({Key? key}) : super(key: key);
+class RiverView2 extends ConsumerWidget {
+  const RiverView2({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -31,9 +30,9 @@ class RiverView extends ConsumerWidget {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => RiverView2()));
+
                   },
-                  child: const Text('할일 이동'),
+                  child: const Text('할일 제거'),
                 ),
 
               ],
