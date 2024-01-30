@@ -10,30 +10,36 @@ class RiverView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final String value = ref.watch(helloWorldProvider);
-
-    ref.listen(counterProvider, (previousState, newState) {
-      print("The new value is $newState");
-    });
-
-
+    // todoListProvider를 통해 TodoListNotifier를 가져옴
+    final TodoListState todoListState = ref.watch(todoListProvider);
 
     return Scaffold(
       body: Center(
         child: Column(
           children: [
-            ElevatedButton(onPressed: () {
-
-
-                  }, child: const Text('할일 추가')),
-            ElevatedButton(onPressed: () {
-
-            }, child: const Text('할일 제거')),
+            Text('할 일 목록'),
+            const Line(),
+            // 할 일 목록 출력
+            ...todoListState.todos.map((todo) => Text(todo.title)),
+            ElevatedButton(
+              onPressed: () {
+                // 할 일 추가 버튼 클릭 시 TodoListProvider의 addTodo 메서드 호출
+                ref.read(todoListProvider.notifier).addTodo("New Task");
+              },
+              child: const Text('할일 추가'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                // 할 일 제거 버튼 클릭 시 TodoListProvider의 removeTodo 메서드 호출
+                if (todoListState.todos.isNotEmpty) {
+                  ref.read(todoListProvider.notifier).removeTodo(0);
+                }
+              },
+              child: const Text('할일 제거'),
+            ),
           ],
         ),
       ),
-
     );
   }
-
 }
