@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:gym_app/page/riverpod_page/rever_view2.dart';
-import 'package:gym_app/page/riverpod_page/stateProvider/read_state_provider.dart';
+import 'package:gym_app/page/riverpod_page/stateProvider/read_state_Provider.dart';
+import 'package:gym_app/page/riverpod_page/stateProviders/read_state_providers.dart';
 import 'package:gym_app/page/riverpod_page/todo_provider.dart';
 import 'package:gym_app/widget/w_line.dart';
 
@@ -32,7 +32,7 @@ class RiverView extends ConsumerWidget {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => const ReadStateProvider()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => const ReadStateProviders()));
                   },
                   child: const Text('할일 이동'),
                 ),
