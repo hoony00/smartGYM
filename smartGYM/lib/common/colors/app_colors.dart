@@ -13,12 +13,13 @@ class AppColors {
   static const Color darkGreen = Color.fromARGB(255, 101, 160, 149);
   static const Color blue = Color.fromARGB(255, 0, 125, 203);
   static const Color darkBlue = Color.fromARGB(255, 0, 70, 111);
-  static const Color primaryColor = Color.fromARGB(255, 0, 185, 206);
+  static const Color primaryColor = Color.fromARGB(255, 206, 78, 225);
+  static const Color secondColor = Color.fromARGB(255, 245, 75, 205);
 
   static const Color mainList = Color.fromARGB(255, 0, 70, 111);
   static const Color mediumBlue = Color.fromARGB(255, 60, 140, 180);
   static const Color darkOrange = Color.fromARGB(255, 222, 112, 48);
-  static const Color faleBlue = Color.fromARGB(255, 160, 206, 222);
+  static const Color faleBlue = Color.fromARGB(255, 44, 44, 44);
   static const Color brightBlue = Color.fromARGB(255, 123, 182, 212);
   static const Color salmon = Color(0xffff6666);
 }

@@ -1,10 +1,9 @@
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:gym_app/common/Colors/app_colors.dart';
-import 'package:lottie/lottie.dart';
 import 'package:velocity_x/velocity_x.dart';
 
+import '../../common/Colors/app_colors.dart';
 import '../../provider/page_index_provider.dart';
 
 class ConvexBottomNavigation extends ConsumerStatefulWidget {
@@ -27,16 +26,17 @@ class _ConvexBottomNavigationState
       {
       },
       badgeMargin: EdgeInsets.only(left: height * 0.028, bottom: height * 0.04),
-      style: TabStyle.fixedCircle,
-      backgroundColor: AppColors.faleBlue,
-      elevation: 7,
-      cornerRadius: 15,
-      height: height * 0.09,
-      // height: indexProvider == 2 ? height * 0.056 : height * 0.09,
+      style: TabStyle.reactCircle,
+      backgroundColor: AppColors.secondColor,
+      elevation: 4,
+      height: height * 0.07,
+      curve: Curves.easeOutQuart,
+      top: -30,
+
 
       items: [
-        TabItem(icon: Icons.calendar_today_outlined, title: '머신'),
-        TabItem(icon: Icons.calendar_today_outlined, title: '투데이'),
+        TabItem(icon: Icons.health_and_safety, title: '머신'),
+        TabItem(icon: Icons.sports_gymnastics_outlined, title: '투데이'),
         TabItem(icon: Icons.person_2_outlined, title: '운동 기록'),
       ],
 
