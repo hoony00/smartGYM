@@ -56,6 +56,10 @@ dependencies:
   #인앱 리뷰
   in_app_review: ^2.0.8
 
+  #ui - bottom
+  convex_bottom_bar: ^3.2.0
+
+
   #사이즈 자동
   flutter_screenutil: ^5.9.0
 
@@ -67,6 +71,9 @@ dependencies:
 
   #json
   json_annotation:
+
+  #ui - animation
+  lottie: ^3.1.0
 
 
 
