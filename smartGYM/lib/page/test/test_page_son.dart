@@ -6,6 +6,10 @@ class TestPageSon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    print('TestPageSon');
+
+
     print(" 받아온 값  ${GoRouterState.of(context).pathParameters['id']}}");
     return Scaffold(
       appBar: AppBar(

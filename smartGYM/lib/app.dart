@@ -55,9 +55,11 @@ class _AppState extends State<App> with Nav, WidgetsBindingObserver {
                 '페이지가 삭제되거나 유효하지 않습니다.',
               ),
               const SizedBox(height: 20),
-              ElevatedButton(onPressed: () {
-                context.go('/');
-              }, child: const Text('홈으로 이동')),
+              ElevatedButton(
+                  onPressed: () {
+                    context.go('/');
+                  },
+                  child: const Text('홈으로 이동')),
             ],
           ),
         ),
@@ -68,6 +70,12 @@ class _AppState extends State<App> with Nav, WidgetsBindingObserver {
         name: 'home',
         path: '/',
         builder: (context, state) => const MainPage(),
+        routes: [
+          GoRoute(
+            path: 'home2',
+            builder: (context, state) => const HomePage(),
+          ),
+        ],
       ),
       GoRoute(
         path: '/test',
@@ -85,20 +93,19 @@ class _AppState extends State<App> with Nav, WidgetsBindingObserver {
         ],
       ),
       GoRoute(
-          path: '/sectest',
-          name: 'sectest',
-          builder: (context, state) {
-            String temp =  (state.extra as Map<String, dynamic>)['sectest'];
-            print("temp : $temp");
-            return  SecTestPage(temp: temp);
-          },
+        path: '/sectest',
+        name: 'sectest',
+        builder: (context, state) {
+          String temp = (state.extra as Map<String, dynamic>)['sectest'];
+          print("temp : $temp");
+          return SecTestPage(temp: temp);
+        },
       ),
     ],
   );
 
   @override
   Widget build(BuildContext context) {
-
     double width = context.deviceWidth;
     double height = context.deviceHeight;
 
@@ -138,11 +145,8 @@ class _AppState extends State<App> with Nav, WidgetsBindingObserver {
   }
 }
 
-
 /*
   현재 라우터를 받아오는 함수
   final _router = GoRouter.of(context);
   context.pop(); == Navigator.pop(context)
 */
-
-

@@ -9,6 +9,10 @@ class SecTestPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+
+    print('SecTestPage');
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('TestPage2'),
