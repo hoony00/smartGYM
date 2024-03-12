@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:gym_app/page/gym/home.dart';
-import 'package:gym_app/page/record/s_record.dart';
-import 'package:gym_app/page/today/s_today.dart';
 
 import '../common/Colors/app_colors.dart';
 import '../provider/page_index_provider.dart';
 import 'bottom_navigation/w_convex_bottom.dart';
+import 'screen/gym/home.dart';
+import 'screen/helper/test_page.dart';
+import 'screen/record/s_record.dart';
 
 class MainPage extends ConsumerStatefulWidget {
   const MainPage({super.key});
@@ -28,13 +28,13 @@ class MainScreenState extends ConsumerState<MainPage>
 
     final List<Widget> body = [
       Visibility(visible: indexProvider == 0, child: GymScreen()),
-      Visibility(visible: indexProvider == 1, child: TodayScreen()),
-      Visibility(visible: indexProvider == 3, child: RecordScreen()),
+      Visibility(visible: indexProvider == 1, child: HelperScreen()),
+      Visibility(visible: indexProvider == 2, child: RecordScreen()),
     ];
 
     return Scaffold(
       floatingActionButton: Visibility(
-        visible: indexProvider != 2,
+        visible: indexProvider == 1,
         child: FloatingActionButton(
           onPressed: () {
             print("floatingActionButton");

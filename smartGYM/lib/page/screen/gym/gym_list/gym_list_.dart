@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../model/machine_data.dart';
+import '../../../../model/machine_data.dart';
 import 'gym_item.dart';
 
 class GymMachineList extends StatelessWidget {

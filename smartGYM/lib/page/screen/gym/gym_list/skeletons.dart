@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:skeletons/skeletons.dart';
 
-import '../../../model/machine_data.dart';
+import '../../../../model/machine_data.dart';
 import 'gym_item.dart';
 
 

@@ -10,6 +10,14 @@ class RecordScreen extends StatefulWidget {
 class _RecordScreenState extends State<RecordScreen> {
   @override
   Widget build(BuildContext context) {
-    return Center(child: const Text('record', style: TextStyle(color: Colors.blueAccent, fontSize: 30),));
+
+
+    print('RecordScreen');
+
+    return const Scaffold(
+      body: Center(
+        child: Text('Record'),
+      ),
+    );
   }
 }

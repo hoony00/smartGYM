@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
-import '../../../model/machine_data.dart';
+import '../../../../model/machine_data.dart';
 
 class GymMachineListItem extends StatefulWidget {
   final GymMachineItem machine;

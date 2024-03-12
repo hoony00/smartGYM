@@ -2,12 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:gym_app/common/extension/context_extension.dart';
-import 'package:gym_app/page/gym/home.dart';
 import 'package:gym_app/page/main_page.dart';
-import 'package:gym_app/page/test/test_page.dart';
-import 'package:gym_app/page/test/test_page2.dart';
-import 'package:gym_app/page/test/test_page_son.dart';
 import 'package:nav/nav.dart';
+
+import 'page/screen/gym/home.dart';
 
 class App extends StatefulWidget {
   const App({super.key});
@@ -76,30 +74,6 @@ class _AppState extends State<App> with Nav, WidgetsBindingObserver {
           ),
         ],
       ),
-      GoRoute(
-        path: '/test',
-        name: 'test',
-        builder: (context, state) => const TestPage(),
-        routes: [
-          GoRoute(
-            path: 'testson',
-            name: 'testson',
-            builder: (context, state) {
-              //   state.pathParameters['id'] = (state.extra as Map<String, dynamic>)['test'];
-              return const TestPageSon();
-            },
-          ),
-        ],
-      ),
-      GoRoute(
-        path: '/sectest',
-        name: 'sectest',
-        builder: (context, state) {
-          String temp = (state.extra as Map<String, dynamic>)['sectest'];
-          print("temp : $temp");
-          return SecTestPage(temp: temp);
-        },
-      ),
     ],
   );
 
@@ -144,8 +118,3 @@ class _AppState extends State<App> with Nav, WidgetsBindingObserver {
   }
 }
 
-/*
-  현재 라우터를 받아오는 함수
-  final _router = GoRouter.of(context);
-  context.pop(); == Navigator.pop(context)
-*/

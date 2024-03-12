@@ -3,9 +3,9 @@ import 'package:go_router/go_router.dart';
 import 'package:gym_app/widget/w_line.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-import '../../model/machine_data.dart';
-import '../../model/notification_text.dart';
 
+import '../../../model/machine_data.dart';
+import '../../../model/notification_text.dart';
 import 'gym_list/gym_list_.dart';
 
 class GymScreen extends StatefulWidget {
