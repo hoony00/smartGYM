@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:gym_app/common/extension/context_extension.dart';
-import 'package:gym_app/page/home/home.dart';
+import 'package:gym_app/page/gym/home.dart';
 import 'package:gym_app/page/main_page.dart';
-import 'package:gym_app/page/riverpod_page/rever_view.dart';
 import 'package:gym_app/page/test/test_page.dart';
 import 'package:gym_app/page/test/test_page2.dart';
 import 'package:gym_app/page/test/test_page_son.dart';
@@ -67,13 +66,13 @@ class _AppState extends State<App> with Nav, WidgetsBindingObserver {
     },
     routes: [
       GoRoute(
-        name: 'home',
+        name: 'main',
         path: '/',
         builder: (context, state) => const MainPage(),
         routes: [
           GoRoute(
-            path: 'home2',
-            builder: (context, state) => const HomePage(),
+            path: 'home',
+            builder: (context, state) => const GymScreen(),
           ),
         ],
       ),

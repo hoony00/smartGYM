@@ -22,7 +22,7 @@ class _TodayScreenState extends State<TodayScreen> {
         ),
         // 바텀 네비게이션이 사라지는게 싫어
         ElevatedButton(
-          onPressed: () => context.push('/testson'),
+          onPressed: () => context.push('/home'),
           child: const Text('이동2'),
         ),
         ElevatedButton(

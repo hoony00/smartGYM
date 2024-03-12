@@ -1,24 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:gym_app/widget/w_line.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import '../../model/machine_data.dart';
 import '../../model/notification_text.dart';
-import 'gym_list/gym_item.dart';
-import 'package:in_app_review/in_app_review.dart';
 
 import 'gym_list/gym_list_.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class GymScreen extends StatefulWidget {
+  const GymScreen({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<GymScreen> createState() => _GymScreenState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _GymScreenState extends State<GymScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

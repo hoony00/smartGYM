@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:gym_app/page/gym/home.dart';
 import 'package:gym_app/page/record/s_record.dart';
 import 'package:gym_app/page/today/s_today.dart';
 
 import '../common/Colors/app_colors.dart';
 import '../provider/page_index_provider.dart';
 import 'bottom_navigation/w_convex_bottom.dart';
-import 'gym/s_gym.dart';
 
 class MainPage extends ConsumerStatefulWidget {
   const MainPage({super.key});
