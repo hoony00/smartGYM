@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:gym_app/common/Colors/app_colors.dart';
 import 'package:gym_app/widget/w_line.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -31,13 +32,13 @@ class _GymScreenState extends State<GymScreen> {
                         fontSize: 15,
                         fontWeight: FontWeight.bold),
                     )
-                .backgroundColor(Colors.cyan)
+                .backgroundColor(AppColors.primaryColor)
                 .h4(context),
           ),
           buildDateRow(),
           // go로 이동시 replace
           // push로 이동시 스택 추가
-          const Line(height: 2, color: Colors.cyan,),
+          const Line(height: 2, color: AppColors.primaryColor,),
           Expanded(child: GymMachineList(machines: machines)),
 
           ElevatedButton(
@@ -80,12 +81,14 @@ Widget buildDateItem(DateTime date) {
     child: Container(
       padding: const EdgeInsets.fromLTRB(4, 8, 6, 8),
       decoration: BoxDecoration(
-        border: Border.all(color: Colors.blue),
+        border: Border.all(color: AppColors.primaryColor),
         borderRadius: BorderRadius.circular(8.0),
       ),
       child: Text(
         '${date.day}일',
-        style: const TextStyle(fontSize: 16.0),
+        style: const TextStyle(
+            color: Colors.white,
+            fontSize: 16.0),
       ),
     ),
   );

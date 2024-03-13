@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:gym_app/common/colors/app_colors.dart';
 import 'package:gym_app/common/extension/context_extension.dart';
 import 'package:gym_app/page/main_page.dart';
 import 'package:nav/nav.dart';
 
-import 'page/screen/gym/home.dart';
+import 'page/screen/gym/s_gym.dart';
 
 class App extends StatefulWidget {
   const App({super.key});
@@ -36,31 +37,32 @@ class _AppState extends State<App> with Nav, WidgetsBindingObserver {
   final GoRouter _router = GoRouter(
     errorPageBuilder: (context, state) {
       return MaterialPage(
-          child: Scaffold(
-        appBar: AppBar(
-          title: const Text('Error'),
-          leading: IconButton(
-            icon: const Icon(Icons.arrow_back),
-            onPressed: () => context.go('/'),
+        child: Scaffold(
+          appBar: AppBar(
+            title: const Text('Error'),
+            leading: IconButton(
+              icon: const Icon(Icons.arrow_back),
+              onPressed: () => context.go('/'),
+            ),
+          ),
+          body: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text(
+                  '페이지가 삭제되거나 유효하지 않습니다.',
+                ),
+                const SizedBox(height: 20),
+                ElevatedButton(
+                    onPressed: () {
+                      context.go('/');
+                    },
+                    child: const Text('홈으로 이동')),
+              ],
+            ),
           ),
         ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text(
-                '페이지가 삭제되거나 유효하지 않습니다.',
-              ),
-              const SizedBox(height: 20),
-              ElevatedButton(
-                  onPressed: () {
-                    context.go('/');
-                  },
-                  child: const Text('홈으로 이동')),
-            ],
-          ),
-        ),
-      ));
+      );
     },
     routes: [
       GoRoute(
@@ -86,15 +88,23 @@ class _AppState extends State<App> with Nav, WidgetsBindingObserver {
       designSize: Size(width, height),
       child: MaterialApp.router(
         showPerformanceOverlay: false,
-        themeMode: ThemeMode.system,
+        theme: ThemeData(
+          textTheme: Theme.of(context).textTheme.apply(
+                bodyColor: Colors.black,
+                displayColor: Colors.black,
+              ),
+          primarySwatch: Colors.blue,
+          primaryColor: AppColors.primaryColor,
+          brightness: Brightness.dark,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+        ),
         //라우트 상태를 전달해주는 함수
         routeInformationProvider: _router.routeInformationProvider,
         // routeInformationParser에서 변환된 값을 어떤 라우트로 보여줄 지 정하는 함수
         routeInformationParser: _router.routeInformationParser,
         //URI String을 상태 및 GoRouter에서 사용할 수 있는 형태로 변환해주는 함수
         routerDelegate: _router.routerDelegate,
-        title: 'Flutter Demo',
-        theme: ThemeData(),
+      //  theme: ThemeData(),
         //  debugShowMaterialGrid: true, -> 그리드로 디자인 보여줌
       ),
     );
@@ -117,4 +127,3 @@ class _AppState extends State<App> with Nav, WidgetsBindingObserver {
     super.didChangeAppLifecycleState(state);
   }
 }
-
