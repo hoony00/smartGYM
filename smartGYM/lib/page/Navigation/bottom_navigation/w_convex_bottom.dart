@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-import '../../common/Colors/app_colors.dart';
-import '../../provider/page_index_provider.dart';
+import '../../../common/Colors/app_colors.dart';
+import '../../../common/colors/color_palette.dart';
+import '../../../provider/page_index_provider.dart';
 
 class ConvexBottomNavigation extends ConsumerStatefulWidget {
   const ConvexBottomNavigation({super.key});
@@ -27,7 +28,7 @@ class _ConvexBottomNavigationState
       },
       badgeMargin: EdgeInsets.only(left: height * 0.028, bottom: height * 0.04),
       style: TabStyle.reactCircle,
-      backgroundColor: AppColors.secondColor,
+      backgroundColor: ColorPalette.secondColor,
       elevation: 4,
       height: height * 0.07,
       curve: Curves.easeOutQuart,
@@ -35,8 +36,8 @@ class _ConvexBottomNavigationState
 
 
       items: [
-        TabItem(icon: Icons.health_and_safety, title: '머신'),
         TabItem(icon: Icons.sports_gymnastics_outlined, title: '투데이'),
+        TabItem(icon: Icons.health_and_safety, title: '머신'),
         TabItem(icon: Icons.person_2_outlined, title: '운동 기록'),
       ],
 

@@ -4,8 +4,8 @@ import 'package:go_router/go_router.dart';
 import 'package:gym_app/common/extension/context_extension.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-class HelperScreen extends StatelessWidget {
-  const HelperScreen({Key? key}) : super(key: key);
+class ReservationScreen extends StatelessWidget {
+  const ReservationScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

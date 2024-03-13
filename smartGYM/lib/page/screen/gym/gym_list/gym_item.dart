@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:gym_app/common/Colors/app_colors.dart';
+import 'package:gym_app/common/colors/color_palette.dart';
 import 'package:velocity_x/velocity_x.dart';
+import '../../../../common/font/pretendard.dart';
 import '../../../../model/machine_data.dart';
 
 class GymMachineListItem extends StatefulWidget {
@@ -19,31 +22,30 @@ class _GymMachineListItemState extends State<GymMachineListItem> {
     return Card(
       color: Colors.white,
       surfaceTintColor: Colors.transparent,
-      elevation: 3,
       margin: const EdgeInsets.all(10),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12.0),
       ),
       child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12.0),
+          border: Border.all(
+            color: ColorPalette.primaryColor,
+            width: 2,
+          ),
+        ),
         padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-
             Text(
               widget.machine.name,
-              style: const TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
+              style: Pretendard.wPrimaryColor_s20_w900,
             ),
-
             const SizedBox(height: 8),
             Text(
               '남은 예약 : ${widget.machine.totalSlots}',
-              style: const TextStyle(
-                fontSize: 16,
-              ),
+              style: Pretendard.wPrimaryColor_s16_w700  ,
             ),
             const SizedBox(height: 8),
             Row(
@@ -56,18 +58,13 @@ class _GymMachineListItemState extends State<GymMachineListItem> {
                   },
                   child: Text(
                     isExpanded ? '예약 가능 시간 닫기 >' : '예약 가능 시간 펼치기 >',
-                    style: const TextStyle(
-                      fontSize: 16,
-                    ),
+                    style: Pretendard.wPrimaryColor_s16_w500  ,
                   ),
                 ),
               ],
             ),
-            20.heightBox,
-            20.heightBox,
-
             // 예약 가능 시간 펼치기
-            if (isExpanded) ...buildTimeSlots(widget.machine),
+            Visibility(visible: isExpanded, child: Column(children: buildTimeSlots(widget.machine))),
           ],
         ),
       ),
@@ -81,7 +78,7 @@ class _GymMachineListItemState extends State<GymMachineListItem> {
     for (int i = 0; i < machine.reservedSlots.length; i++) {
       timeSlots.add(
         ListTile(
-          title: Text('예약 가능 시간 $i'),
+          title: Text('예약 가능 시간 $i', style: Pretendard.wPrimaryColor_s12_w700,),
           // 여기에 예약 가능 시간을 눌렀을 때의 동작 추가
           onTap: () {
             print('예약 가능 시간 $i 클릭됨');

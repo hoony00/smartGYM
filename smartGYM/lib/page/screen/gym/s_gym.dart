@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:gym_app/common/Colors/app_colors.dart';
+import 'package:gym_app/common/colors/color_palette.dart';
 import 'package:gym_app/widget/w_line.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -23,34 +24,39 @@ class _GymScreenState extends State<GymScreen> {
 
       body: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.fromLTRB(8, 8, 8, 0),
-            /// 공지사항
-            child:  NotificationText.NOTIFICATION_TITLE
-                .marquee(
-                    textStyle: const TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold),
-                    )
-                .backgroundColor(AppColors.primaryColor)
-                .h4(context),
-          ),
-          buildDateRow(),
-          // go로 이동시 replace
-          // push로 이동시 스택 추가
-          const Line(height: 2, color: AppColors.primaryColor,),
+          const _NoticeBar(),
+          _buildDateRow(),
+          const Line(height: 2, color: ColorPalette.primaryColor,),
           Expanded(child: GymMachineList(machines: machines)),
-
-          ElevatedButton(
-              onPressed: () => context.push('/test'),
-              child: const Text('이동')),
         ],
       ),
     );
   }
 }
 
-Widget buildDateRow() {
+class _NoticeBar extends StatelessWidget {
+  const _NoticeBar({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(8, 8, 8, 0),
+      /// 공지사항
+      child:  NotificationText.NOTIFICATION_TITLE
+          .marquee(
+              textStyle: const TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold),
+              )
+          .backgroundColor(ColorPalette.primaryColor)
+          .h4(context),
+    );
+  }
+}
+
+Widget _buildDateRow() {
   // 오늘 날짜
   DateTime today = DateTime.now();
 
@@ -58,7 +64,7 @@ Widget buildDateRow() {
   List<Widget> dateWidgets = [];
   for (int i = 0; i < 7; i++) {
     DateTime date = today.add(Duration(days: i));
-    dateWidgets.add(buildDateItem(date));
+    dateWidgets.add(_buildDateItem(date));
   }
 
   // Row에 날짜 목록 추가
@@ -71,7 +77,7 @@ Widget buildDateRow() {
   );
 }
 
-Widget buildDateItem(DateTime date) {
+Widget _buildDateItem(DateTime date) {
   // GestureDetector를 이용하여 터치 이벤트 처리
   return GestureDetector(
     onTap: () {
@@ -81,7 +87,7 @@ Widget buildDateItem(DateTime date) {
     child: Container(
       padding: const EdgeInsets.fromLTRB(4, 8, 6, 8),
       decoration: BoxDecoration(
-        border: Border.all(color: AppColors.primaryColor),
+        border: Border.all(color: ColorPalette.primaryColor),
         borderRadius: BorderRadius.circular(8.0),
       ),
       child: Text(

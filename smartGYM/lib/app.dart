@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:gym_app/common/colors/app_colors.dart';
+import 'package:gym_app/common/colors/color_palette.dart';
 import 'package:gym_app/common/extension/context_extension.dart';
 import 'package:gym_app/page/main_page.dart';
 import 'package:nav/nav.dart';
@@ -90,11 +91,11 @@ class _AppState extends State<App> with Nav, WidgetsBindingObserver {
         showPerformanceOverlay: false,
         theme: ThemeData(
           textTheme: Theme.of(context).textTheme.apply(
-                bodyColor: Colors.black,
-                displayColor: Colors.black,
+                bodyColor: Colors.white,
+                displayColor: Colors.white,
               ),
           primarySwatch: Colors.blue,
-          primaryColor: AppColors.primaryColor,
+          primaryColor: ColorPalette.primaryColor,
           brightness: Brightness.dark,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
