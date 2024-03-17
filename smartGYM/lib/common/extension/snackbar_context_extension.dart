@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../widget/w_tap.dart';
-import '../Colors/app_colors.dart';
 import '../colors/color_palette.dart';
 
 extension SnackbarContextExtension on BuildContext {

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gym_app/common/Colors/app_colors.dart';
 import 'package:gym_app/common/colors/color_palette.dart';
-import 'package:velocity_x/velocity_x.dart';
 import '../../../../common/font/pretendard.dart';
 import '../../../../model/machine_data.dart';
 

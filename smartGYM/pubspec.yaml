@@ -75,6 +75,10 @@ dependencies:
   #ui - animation
   lottie: ^3.1.0
 
+  #이미지 업로드
+  image_picker: ^0.8.7
+
+
 
 
 

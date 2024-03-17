@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:gym_app/common/Colors/app_colors.dart';
 import 'package:gym_app/common/colors/color_palette.dart';
 import 'package:gym_app/widget/w_line.dart';
 import 'package:velocity_x/velocity_x.dart';
