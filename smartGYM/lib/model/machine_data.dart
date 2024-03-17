@@ -5,7 +5,6 @@ import 'package:json_annotation/json_annotation.dart';
 import '../common/utill/json_converter_util.dart';
 part 'machine_data.g.dart';
 
-
 @JsonSerializable()
 class GymMachineItem {
   final String id;

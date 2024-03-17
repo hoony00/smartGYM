@@ -1,7 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 part of 'machine_data.dart';
-
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************

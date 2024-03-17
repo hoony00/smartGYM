@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../widget/w_tap.dart';
 import '../Colors/app_colors.dart';
+import '../colors/color_palette.dart';
 
 extension SnackbarContextExtension on BuildContext {
   ///Scaffold안에 Snackbar를 보여줍니다.
@@ -15,7 +16,7 @@ extension SnackbarContextExtension on BuildContext {
   ///Scaffold안에 빨간 Snackbar를 보여줍니다.
   void showErrorSnackbar(
     String message, {
-    Color bgColor = AppColors.salmon,
+    Color bgColor = ColorPalette.salmon,
     double bottomMargin = 0,
   }) {
     _showSnackBarWithContext(
@@ -38,7 +39,7 @@ void _showSnackBarWithContext(BuildContext context, SnackBar snackbar) {
 class _SnackbarFactory {
   static SnackBar createSnackBar(BuildContext context, String message,
       {Color? bgColor, Widget? extraButton}) {
-    Color snackbarBgColor = bgColor ?? AppColors.salmon;
+    Color snackbarBgColor = bgColor ?? ColorPalette.salmon;
     return SnackBar(
         elevation: 0,
         behavior: SnackBarBehavior.fixed,
@@ -75,7 +76,7 @@ class _SnackbarFactory {
   }
 
   static SnackBar createErrorSnackBar(BuildContext context, String? message,
-      {Color bgColor = AppColors.salmon, double bottomMargin = 0}) {
+      {Color bgColor = ColorPalette.salmon, double bottomMargin = 0}) {
     return SnackBar(
         elevation: 0,
         behavior: SnackBarBehavior.fixed,
