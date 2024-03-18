@@ -15,11 +15,17 @@ List<XFile?> multiImage = []; // 갤러리에서 여러장의 사진을 선택�
 List<XFile?> images = []; // 가져온 사진들을 보여주기 위한 변수
 
 class _RecordScreenState extends State<RecordScreen> {
+
+
   @override
   Widget build(BuildContext context) {
+
+    final width = MediaQuery.of(context).size.width;
+
+
     return Scaffold(
         body: Container(
-            padding: EdgeInsets.all(10),
+            padding: EdgeInsets.all(width * 0.05),
             child: Column(
               children: [
                 SizedBox(
@@ -29,8 +35,8 @@ class _RecordScreenState extends State<RecordScreen> {
                   children: [
                     //카메라로 촬영하기
                     Container(
-                        margin: EdgeInsets.all(10),
-                        padding: EdgeInsets.all(5),
+                        margin: EdgeInsets.all(width * 0.05),
+                        padding: EdgeInsets.all(width * 0.001),
                         decoration: BoxDecoration(color: Colors.lightBlueAccent, borderRadius: BorderRadius.circular(5),
                           boxShadow: [
                             BoxShadow(color: Colors.grey.withOpacity(0.5), spreadRadius: 0.5, blurRadius: 5)
@@ -51,8 +57,8 @@ class _RecordScreenState extends State<RecordScreen> {
                     ),
                     //갤러리에서 가져오기
                     Container(
-                        margin: EdgeInsets.all(10),
-                        padding: EdgeInsets.all(5),
+                        margin: EdgeInsets.all(width * 0.05),
+                        padding: EdgeInsets.all(width * 0.001),
                         decoration: BoxDecoration(color: Colors.lightBlueAccent, borderRadius: BorderRadius.circular(5),
                           boxShadow: [BoxShadow(color: Colors.grey.withOpacity(0.5), spreadRadius: 0.5, blurRadius: 5)],
                         ),
@@ -73,7 +79,7 @@ class _RecordScreenState extends State<RecordScreen> {
                   ],
                 ),
                 Container(
-                  margin: EdgeInsets.all(10),
+                  padding: EdgeInsets.all(width * 0.05),
                   child: GridView.builder(padding: EdgeInsets.all(0),
                     shrinkWrap: true,
                     itemCount: images.length, //보여줄 item 개수. images 리스트 변수에 담겨있는 사진 수 만큼.
