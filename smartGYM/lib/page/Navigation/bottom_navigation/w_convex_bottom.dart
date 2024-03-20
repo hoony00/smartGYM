@@ -29,7 +29,7 @@ class _ConvexBottomNavigationState
       style: TabStyle.reactCircle,
       backgroundColor: ColorPalette.secondColor,
       elevation: 4,
-      height: height * 0.07,
+      height: height * 0.08,
       curve: Curves.easeOutQuart,
       top: -30,
 
