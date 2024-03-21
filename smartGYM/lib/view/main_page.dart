@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:gym_app/page/screen/add/s_add.dart';
-import 'package:gym_app/page/screen/reservation/s_recservation.dart';
+import 'package:gym_app/view/screen/add/s_add.dart';
+import 'package:gym_app/view/screen/reservation/s_recservation.dart';
 
 import '../common/colors/color_palette.dart';
 import '../provider/page_index_provider.dart';

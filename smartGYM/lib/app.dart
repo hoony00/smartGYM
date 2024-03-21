@@ -3,10 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:gym_app/common/colors/color_palette.dart';
 import 'package:gym_app/common/extension/context_extension.dart';
-import 'package:gym_app/page/main_page.dart';
+import 'package:gym_app/view/main_page.dart';
 import 'package:nav/nav.dart';
 
-import 'page/screen/gym/s_gym.dart';
+import 'view/screen/gym/s_gym.dart';
 
 class App extends StatefulWidget {
   const App({super.key});
