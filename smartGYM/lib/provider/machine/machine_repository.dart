@@ -8,21 +8,21 @@ class MachineRepository {
   final Ref _ref;
   final imagesUrl = <String>[
     //1
-    'armCurl.jpg',
+    'armCurl',
     //2
-    'lateralRaise.jpg',
+    'lateralRaise',
     //3
-    'pecFly.jpg',
+    'pecFly',
     //4
-    'pullDownExercise.jpg',
+    'pullDownExercise',
     //5
-    'pullUpMachine.jpg',
+    'pullUpMachine',
     //6
-    'seatedRow.jpg',
+    'seatedRow',
     //7
-    'shoulderPress.jpg',
+    'shoulderPress',
     //8
-    'smithMachine.jpg'
+    'smithMachine'
 
   ];
 

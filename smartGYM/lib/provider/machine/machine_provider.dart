@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gym_app/model/machine_images.dart';
 
-import 'images_repository.dart';
+import 'machine_repository.dart';
 
 ///* 공지사항을 관리하는 provider 0207 이상훈
 

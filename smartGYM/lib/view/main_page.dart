@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:gym_app/provider/images/images_provider.dart';
+import 'package:gym_app/provider/machine/machine_provider.dart';
 import 'package:gym_app/view/screen/add/s_add.dart';
 import 'package:gym_app/view/screen/reservation/s_recservation.dart';
 

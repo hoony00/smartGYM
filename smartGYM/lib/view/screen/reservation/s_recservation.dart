@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gym_app/model/machine_images.dart';
 
-import '../../../provider/images/images_provider.dart';
+import '../../../provider/machine/machine_provider.dart';
 
 class ReservationScreen extends ConsumerStatefulWidget {
   const ReservationScreen({super.key});
@@ -31,7 +31,7 @@ class _ReservationScreenState extends ConsumerState<ReservationScreen> {
           return Card(
             child: Column(
               children: [
-                Image.asset('assets/images/machine/${machine.machineImageUrl}'),
+                Image.asset('assets/images/machine/${machine.machineImageUrl}.png'),
                 Text(machine.machineName),
                 Text(machine.machineDescription),
                 Text(machine.isReservations.toString()),
