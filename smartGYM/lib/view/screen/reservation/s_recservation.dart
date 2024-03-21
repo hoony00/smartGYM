@@ -12,21 +12,14 @@ class ReservationScreen extends ConsumerStatefulWidget {
 }
 
 class _ReservationScreenState extends ConsumerState<ReservationScreen> {
-
   @override
   void initState() {
-
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-
     List<MachineModel> machineList = ref.watch(machineListProvider);
-
-
-    print("machineList: $machineList");
-
 
     return Scaffold(
       //machineList에 있는 데이터를 화면에 표시해야함
@@ -34,7 +27,17 @@ class _ReservationScreenState extends ConsumerState<ReservationScreen> {
         itemCount: machineList.length,
         itemBuilder: (context, index) {
           final machine = machineList[index];
-          return Text(machine.machineName, style: const TextStyle(fontSize: 20, color: Colors.white));
+
+          return Card(
+            child: Column(
+              children: [
+                Image.asset('assets/images/machine/${machine.machineImageUrl}'),
+                Text(machine.machineName),
+                Text(machine.machineDescription),
+                Text(machine.isReservations.toString()),
+              ],
+            ),
+          );
         },
       ),
     );

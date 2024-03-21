@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:gym_app/provider/images/images_provider.dart';
 import 'package:gym_app/view/screen/add/s_add.dart';
 import 'package:gym_app/view/screen/reservation/s_recservation.dart';
 
@@ -19,6 +20,7 @@ class MainScreenState extends ConsumerState<MainPage>
     with SingleTickerProviderStateMixin {
   @override
   void initState() {
+    setMachineList();
     super.initState();
   }
 
@@ -51,6 +53,12 @@ class MainScreenState extends ConsumerState<MainPage>
       bottomNavigationBar: const ConvexBottomNavigation(),
     );
   }
+
+  /// 참여중인 카풀 수 조회
+  void setMachineList() async {
+    await ref.read(machineListProvider.notifier).getMachine();
+  }
+
 }
 
 
