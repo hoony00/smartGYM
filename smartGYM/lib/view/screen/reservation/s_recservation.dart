@@ -22,19 +22,48 @@ class _ReservationScreenState extends ConsumerState<ReservationScreen> {
     List<MachineModel> machineList = ref.watch(machineListProvider);
 
     return Scaffold(
-      //machineList에 있는 데이터를 화면에 표시해야함
       body: ListView.builder(
         itemCount: machineList.length,
         itemBuilder: (context, index) {
           final machine = machineList[index];
 
           return Card(
-            child: Column(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Image.asset('assets/images/machine/${machine.machineImageUrl}.png'),
-                Text(machine.machineName),
-                Text(machine.machineDescription),
-                Text(machine.isReservations.toString()),
+                // Image with appropriate sizing
+                Container(
+                  height: 100,
+                  width: 100,
+                  clipBehavior: Clip.antiAlias, // Prevent image overflow
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  child: Image.asset(
+                    'assets/images/machine/${machine.machineImageUrl}.png',
+                    fit: BoxFit.contain,
+                  ),
+                ),
+
+                Flexible(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start, // Align text to left
+                    children: [
+                      Text(
+                        machine.machineName,
+                        style: TextStyle(
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(
+                        machine.machineDescription,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           );
