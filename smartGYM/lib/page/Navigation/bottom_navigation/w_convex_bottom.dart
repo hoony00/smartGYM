@@ -34,10 +34,10 @@ class _ConvexBottomNavigationState
       top: -30,
 
 
-      items: [
-        TabItem(icon: Icons.sports_gymnastics_outlined, title: '투데이'),
-        TabItem(icon: Icons.health_and_safety, title: '머신'),
-        TabItem(icon: Icons.person_2_outlined, title: '운동 기록'),
+      items: const [
+        TabItem(icon: Icons.more_time_outlined, title: '예약'),
+        TabItem(icon: Icons.sports_gymnastics_outlined, title: '운동'),
+        TabItem(icon: Icons.add_chart, title: '머신'),
       ],
 
       // 초기값

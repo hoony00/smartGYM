@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:gym_app/page/screen/add/s_add.dart';
 import 'package:gym_app/page/screen/reservation/s_recservation.dart';
 
 import '../common/colors/color_palette.dart';
 import '../provider/page_index_provider.dart';
 import 'Navigation/bottom_navigation/w_convex_bottom.dart';
 import 'screen/gym/s_gym.dart';
-import 'screen/record/s_record.dart';
 
 class MainPage extends ConsumerStatefulWidget {
   const MainPage({super.key});
@@ -27,9 +27,9 @@ class MainScreenState extends ConsumerState<MainPage>
     final indexProvider = ref.watch(pageIndexProvider);
 
     final List<Widget> body = [
-      Visibility(visible: indexProvider == 0, child: ReservationScreen()),
-      Visibility(visible: indexProvider == 1, child: GymScreen()),
-      Visibility(visible: indexProvider == 2, child: RecordScreen()),
+      Visibility(visible: indexProvider == 0, child: const ReservationScreen()),
+      Visibility(visible: indexProvider == 1, child: const GymScreen()),
+      Visibility(visible: indexProvider == 2, child: const AddScreen()),
     ];
 
     return Scaffold(
