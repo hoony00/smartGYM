@@ -70,7 +70,6 @@ class _GymMachineListItemState extends State<GymMachineListItem> {
   }
 
   List<Widget> buildTimeSlots(GymMachineItem machine) {
-    print("widget.machine.reservedSlots.length : ${machine.reservedSlots.length}");
     // 예약 가능 시간에 대한 리스트 생성
     List<Widget> timeSlots = [];
     for (int i = 0; i < machine.reservedSlots.length; i++) {

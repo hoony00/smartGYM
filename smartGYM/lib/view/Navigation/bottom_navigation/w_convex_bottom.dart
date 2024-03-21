@@ -26,7 +26,7 @@ class _ConvexBottomNavigationState
       {
       },
       badgeMargin: EdgeInsets.only(left: height * 0.028, bottom: height * 0.04),
-      style: TabStyle.reactCircle,
+      style: TabStyle.flip,
       backgroundColor: ColorPalette.secondColor,
       elevation: 4,
       height: height * 0.08,
