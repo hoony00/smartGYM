@@ -5,24 +5,27 @@ import 'images_repository.dart';
 
 ///* 공지사항을 관리하는 provider 0207 이상훈
 
-final machineImagesProvider =
-    StateNotifierProvider<MachineStateNotifier, List<MachineModel>>(
-  (ref) =>
-      MachineStateNotifier([], ref, ref.read(machineRepository)),
+final machineListProvider =
+StateNotifierProvider<MachineStateNotifier, List<MachineModel>>(
+      (ref) => MachineStateNotifier(ref, repository: ref.read(machineRepository)),
 );
 
 class MachineStateNotifier extends StateNotifier<List<MachineModel>> {
   final Ref _ref;
   final MachineRepository repository;
 
-  MachineStateNotifier(super.state, this._ref, this.repository);
+  MachineStateNotifier(this._ref, {required this.repository}) : super([]);
 
-  Future getNotice() async {
+  Future<List<MachineModel>> getMachine() async {
     try {
       List<MachineModel> machineList = await repository.getMachine();
-      state = machineList;
+      if(machineList.isNotEmpty){
+        state = machineList;
+      }
+      return machineList;
     } catch (e) {
-      print("NoticeStateNotifier [getNotice] 에러: $e");
+      print("MachineStateNotifier [getNotice] 에러: $e");
+      return [];
     }
   }
 }
