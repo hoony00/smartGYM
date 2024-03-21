@@ -28,43 +28,48 @@ class _ReservationScreenState extends ConsumerState<ReservationScreen> {
           final machine = machineList[index];
 
           return Card(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            child: Column(
               children: [
-                // Image with appropriate sizing
-                Container(
-                  height: 100,
-                  width: 100,
-                  clipBehavior: Clip.antiAlias, // Prevent image overflow
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  child: Image.asset(
-                    'assets/images/machine/${machine.machineImageUrl}.png',
-                    fit: BoxFit.contain,
-                  ),
-                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    // Image with appropriate sizing
+                    Container(
+                      height: 100,
+                      width: 100,
+                      clipBehavior: Clip.antiAlias, // Prevent image overflow
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      child: Image.asset(
+                        'assets/images/machine/${machine.machineImageUrl}.png',
+                        fit: BoxFit.contain,
+                      ),
+                    ),
 
-                Flexible(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start, // Align text to left
-                    children: [
-                      Text(
-                        machine.machineName,
-                        style: TextStyle(
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.bold,
-                        ),
+                    Flexible(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start, // Align text to left
+                        children: [
+                          Text(
+                            machine.machineName,
+                            style: TextStyle(
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
+                            machine.machineDescription,
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ],
                       ),
-                      Text(
-                        machine.machineDescription,
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ],
+              /// todo : 예약 상태, 예약 버튼 추가하기
             ),
           );
         },
