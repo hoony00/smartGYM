@@ -57,10 +57,6 @@ class _ReservationList extends StatelessWidget {
             padding: const EdgeInsets.all(2.0),
             child: Card(
               margin: const EdgeInsets.all(1),
-              shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(10)),
-                side: BorderSide(color: ColorPalette.primaryColor, width: 0.5),
-              ),
               child: Column(
                 children: [
                   Row(
@@ -98,8 +94,9 @@ class _ReservationList extends StatelessWidget {
                               maxLines: 2,
                               overflow: TextOverflow.ellipsis,
                             ),
-                            Divider(
-                              color: ColorPalette.primaryColor,
+                            const Divider(
+                              color: ColorPalette.secondColor,
+
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -108,7 +105,7 @@ class _ReservationList extends StatelessWidget {
                                     style: const TextStyle(fontSize: 15.0)),
                                 ElevatedButton(
                                     onPressed: () {},
-                                    child: const Text('예약가능')),
+                                    child:  const Text('예약가능', style: TextStyle(color: ColorPalette.primaryColor),)),
                               ],
                             ),
                           ],
