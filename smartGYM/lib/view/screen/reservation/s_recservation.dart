@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:gym_app/common/colors/color_palette.dart';
 import 'package:gym_app/model/m_machine.dart';
 import 'package:gym_app/widget/w_appBar.dart';
@@ -108,7 +109,9 @@ class _ReservationList extends StatelessWidget {
                                     ),
                                   ),
                                   onPressed: machine.isReservations ? null : () {
-                                    print('${machine.machineName} 예약하기');
+                                    context.push('/reservation/detail/${machine.machineName}');
+
+
                                   }, // 예약 가능 여부에 따라 onPressed 설정
                                   child: Text(
                                     machine.isReservations ? '예약 불가' : '시간 선택',

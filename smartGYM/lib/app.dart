@@ -4,9 +4,11 @@ import 'package:go_router/go_router.dart';
 import 'package:gym_app/common/colors/color_palette.dart';
 import 'package:gym_app/common/extension/context_extension.dart';
 import 'package:gym_app/view/main_page.dart';
+import 'package:gym_app/view/screen/reservation/s_detail_reservation.dart';
 import 'package:nav/nav.dart';
 
 import 'view/screen/gym/s_gym.dart';
+import 'view/screen/reservation/s_recservation.dart';
 
 class App extends StatefulWidget {
   const App({super.key});
@@ -74,6 +76,19 @@ class _AppState extends State<App> with Nav, WidgetsBindingObserver {
           GoRoute(
             path: 'home',
             builder: (context, state) => const GymScreen(),
+          ),
+          /// 예약
+          GoRoute(
+            path: 'reservation',
+            builder: (context, state) => const ReservationScreen(),
+            routes: [
+              GoRoute(
+                path: 'detail/:machineName',
+                builder: (context, state) {
+                  return DetailMachineReservationScreen(machineName: state.pathParameters['machineName']!);
+                },
+              ),
+            ],
           ),
         ],
       ),
