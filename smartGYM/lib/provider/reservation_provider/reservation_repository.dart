@@ -84,61 +84,37 @@ class MachineRepository {
 
   // 예약 상태
   final reservation = <List<bool>>[
-    // 각 시간의 10~20, 30~40, 50~00 의미
+   // 각 시간의 10~20, 30~40, 50~00 의미
     //1
     [true, true, true],
-    //2
+   //2
     [false, false, false],
-    //3
+   //3
     [false, false, false],
-    //4
+   //4
     [false, false, false],
-    //5
+   //5
     [false, false, false],
-    //6
+   //6
     [false, false, false],
-    //7
+   //7
     [false, false, false],
-    //8
+   //8
     [false, false, false],
-  ];
-
-  final youtubeUrl = <String>[
-    //1
-    'https://www.youtube.com/watch?v=JyKI6e3Z6e4',
-    //2
-    'https://www.youtube.com/watch?v=JyKI6e3Z6e4',
-    //3
-    'https://www.youtube.com/watch?v=JyKI6e3Z6e4',
-    //4
-    'https://www.youtube.com/watch?v=JyKI6e3Z6e4',
-    //5
-    'https://www.youtube.com/watch?v=JyKI6e3Z6e4',
-    //6
-    'https://www.youtube.com/watch?v=JyKI6e3Z6e4',
-    //7
-    'https://www.youtube.com/watch?v=JyKI6e3Z6e4',
-    //8
-    'https://www.youtube.com/watch?v=JyKI6e3Z6e4',
   ];
 
   MachineRepository(this._ref);
+
+
+
 
   Future<List<MachineModel>> getMachine() async {
     // assets에 있는 이미지를 가져오는 부분
     List<MachineModel> machineImages = [];
 
-    for (int i = 0; i < imagesUrl.length; i++) {
-      machineImages.add(MachineModel(
-          machineImageUrl: imagesUrl[i],
-          machineName: machineName[i],
-          machineDescription: machineDescription[i],
-          machineType: machineType[i],
-          youtubeUrl: youtubeUrl[i],
-          isReservations: reservation[i].toList()),
 
-      );
-    }
+
+
 
     return machineImages;
   }
