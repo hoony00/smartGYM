@@ -20,7 +20,8 @@ class _TimeSlotTileState extends ConsumerState<TimeSlotTile> {
     final machineName = widget.machineName;
 
     final startTime = _calculateStartTime(widget.timeIndex);
-    final machineState = ref.watch(machineListProvider.notifier).getMachineByName(machineName);
+    final machine = ref.watch(machineListProvider);
+    final machineState = machine.where((element) => element.machineName == machineName).first;
 
     return ListTile(
       title: Row(
