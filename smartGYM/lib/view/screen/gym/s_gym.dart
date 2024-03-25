@@ -4,9 +4,7 @@ import 'package:gym_app/widget/w_line.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 
-import '../../../model/machine_data.dart';
 import '../../../model/notification_text.dart';
-import 'gym_list/gym_list_.dart';
 
 class GymScreen extends StatefulWidget {
   const GymScreen({Key? key}) : super(key: key);
@@ -25,7 +23,6 @@ class _GymScreenState extends State<GymScreen> {
           const _NoticeBar(),
           _buildDateRow(),
           const Line(height: 2, color: ColorPalette.primaryColor,),
-          Expanded(child: GymMachineList(machines: machines)),
         ],
       ),
     );

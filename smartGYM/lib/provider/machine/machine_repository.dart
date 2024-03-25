@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gym_app/model/machine_images.dart';
 
@@ -8,41 +7,40 @@ class MachineRepository {
   final Ref _ref;
   final imagesUrl = <String>[
     //1
-    'armCurl',
+    'ArmCurl',
     //2
-    'lateralRaise',
+    'LateralRaise',
     //3
-    'pecFly',
+    'Pec-DecFly',
     //4
-    'pullDownExercise',
+    'LatPullDown',
     //5
-    'pullUpMachine',
+    'PullUpMachine',
     //6
-    'seatedRow',
+    'SeatedRow',
     //7
-    'shoulderPress',
+    'ShoulderPress',
     //8
-    'smithMachine'
-
+    'SmithMachine'
   ];
 
   final machineName = <String>[
     //1
-    'armCurl',
+    'ArmCurl',
     //2
-    'lateralRaise',
+    'LateralRaise',
     //3
-    'pecFly',
+    'LatPullDown',
     //4
-    'pullDownExercise',
+    'Pec-DecFly',
     //5
-    'pullUpMachine',
+    'PullUpMachine',
     //6
-    'seatedRow',
+    'SeatedRow',
     //7
-    'shoulderPress',
+    'ShoulderPress',
     //8
-    'smithMachine'
+    'SmithMachine'
   ];
 
   final machineDescription = <String>[
@@ -53,7 +51,7 @@ class MachineRepository {
     //3
     '덤벨을 손에 쥐고 벤치에 누워 줍니다. 팔꿈치를 살짝 구부린 상태에서 덤벨을 가슴 위로 들어 올립니다. 천천히 덤벨을 원래 위치로 내립니다.',
     //4
-    '풀다운 머신에 앉아서 핸들을 잡습니다. 핸들을 잡아당겨 턱까지 들어 올립니다. 천천히 핸들을 원래 위치로 내립니다.',
+    '렛풀다운 머신에 앉아서 핸들을 잡습니다. 핸들을 잡아당겨 턱까지 들어 올립니다. 천천히 핸들을 원래 위치로 내립니다.',
     //5
     '풀업 머신에 앉아서 핸들을 잡습니다. 핸들을 잡아당겨 몸을 들어 올립니다. 천천히 몸을 내립니다.',
     //6
@@ -85,30 +83,43 @@ class MachineRepository {
   ];
 
   // 예약 상태
-  final reservation = <bool>[
-   //1
-    false,
+  final reservation = <List<bool>>[
+   // 각 시간의 10~20, 30~40, 50~00 의미
+    //1
+    [true, true, true],
    //2
-    false,
+    [false, false, false],
    //3
-    false,
+    [false, false, false],
    //4
-    false,
+    [false, false, false],
    //5
-    false,
+    [false, false, false],
    //6
-    false,
+    [false, false, false],
    //7
-    false,
+    [false, false, false],
    //8
-    false
+    [false, false, false],
   ];
 
   MachineRepository(this._ref);
 
+  bool isAllAvailable(List<bool> reservation) {
+    for (bool isReserved in reservation) {
+      if (!isReserved) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+
   Future<List<MachineModel>> getMachine() async {
     // assets에 있는 이미지를 가져오는 부분
     List<MachineModel> machineImages = [];
+
+
 
     for (int i = 0; i < imagesUrl.length; i++) {
       machineImages.add(MachineModel(
@@ -116,7 +127,7 @@ class MachineRepository {
           machineName: machineName[i],
           machineDescription: machineDescription[i],
           machineType: machineType[i],
-          isReservations: reservation[i]));
+          isReservations: isAllAvailable(reservation[i].toList())));
 
 
     }

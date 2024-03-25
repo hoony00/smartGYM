@@ -35,7 +35,7 @@ class MainScreenState extends ConsumerState<MainPage>
     ];
 
     return Scaffold(
-      floatingActionButton: Visibility(
+/*      floatingActionButton: Visibility(
         visible: indexProvider == 0,
         child: FloatingActionButton(
           onPressed: () {
@@ -43,7 +43,7 @@ class MainScreenState extends ConsumerState<MainPage>
           },
           child: const Icon(Icons.add, color: ColorPalette.primaryColor),
         ),
-      ),
+      ),*/
       body: SafeArea(
         child: IndexedStack(
           index: indexProvider,

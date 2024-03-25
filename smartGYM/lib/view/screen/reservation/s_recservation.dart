@@ -24,15 +24,12 @@ class _ReservationScreenState extends ConsumerState<ReservationScreen> {
     List<MachineModel> machineList = ref.watch(machineListProvider);
 
     return Scaffold(
-
       body: Column(
         children: [
           CustomAppbar(title: '예약하기'),
           _ReservationList(machineList: machineList),
-        ]
-        ,
-      )
-      ,
+        ],
+      ),
     );
   }
 }
@@ -71,8 +68,7 @@ class _ReservationList extends StatelessWidget {
                           borderRadius: BorderRadius.circular(10.0),
                         ),
                         child: Image.asset(
-                          'assets/images/machine/${machine
-                              .machineImageUrl}.png',
+                          'assets/images/machine/${machine.machineImageUrl}.png',
                           fit: BoxFit.contain,
                         ),
                       ),
@@ -96,7 +92,6 @@ class _ReservationList extends StatelessWidget {
                             ),
                             const Divider(
                               color: ColorPalette.secondColor,
-
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -105,7 +100,19 @@ class _ReservationList extends StatelessWidget {
                                     style: const TextStyle(fontSize: 15.0)),
                                 ElevatedButton(
                                     onPressed: () {},
-                                    child:  const Text('예약가능', style: TextStyle(color: ColorPalette.primaryColor),)),
+                                    child: machine.isReservations
+                                        ? const Text(
+                                      '예약불가',
+                                      style: TextStyle(
+                                          color:
+                                          ColorPalette.primaryColor),
+                                    )
+                                        : const Text(
+                                      '예약가능',
+                                      style: TextStyle(
+                                          color:
+                                          ColorPalette.secondColor),
+                                    )),
                               ],
                             ),
                           ],

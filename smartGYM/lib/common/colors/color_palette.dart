@@ -8,6 +8,7 @@ class ColorPalette {
 
   static const  primaryColor = Color.fromARGB(255, 206, 78, 225);
   static const  secondColor = Color.fromARGB(255, 245, 75, 205);
+  static const  orangeColor = Color.fromARGB(255, 245, 140, 97);
 
   static const darkPrimaryColor = Color(0xFFA8D2A0);
 
