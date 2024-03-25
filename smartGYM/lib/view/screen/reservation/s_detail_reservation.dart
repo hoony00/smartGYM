@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:gym_app/model/m_machine.dart';
+
+import '../../../provider/machine/machine_provider.dart';
 
 class DetailMachineReservationScreen extends ConsumerStatefulWidget {
   const DetailMachineReservationScreen({super.key, required this.machineName});
@@ -12,12 +15,18 @@ class DetailMachineReservationScreen extends ConsumerStatefulWidget {
 class _DetailMachineReservationState extends ConsumerState<DetailMachineReservationScreen> {
   @override
   Widget build(BuildContext context) {
+
+    final MachineModel machine = ref.read(machineListProvider.notifier).getMachineByName(widget.machineName);
+
+
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.machineName),
+        title: Text(machine.machineName),
       ),
-      body: Center(
-        child: Text(widget.machineName),
+      body: Column(
+        children: [
+          Text(machine.machineDescription),
+        ],
       ),
     );
   }

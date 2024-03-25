@@ -28,4 +28,10 @@ class MachineStateNotifier extends StateNotifier<List<MachineModel>> {
       return [];
     }
   }
+
+  // 머신 이름으로 머신 정보 가져오기
+  MachineModel getMachineByName(String name) {
+    return state.firstWhere((machine) => machine.machineName == name);
+  }
+
 }
