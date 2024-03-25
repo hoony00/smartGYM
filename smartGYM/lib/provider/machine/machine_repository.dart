@@ -105,14 +105,7 @@ class MachineRepository {
 
   MachineRepository(this._ref);
 
-  bool isAllAvailable(List<bool> reservation) {
-    for (bool isReserved in reservation) {
-      if (!isReserved) {
-        return false;
-      }
-    }
-    return true;
-  }
+
 
 
   Future<List<MachineModel>> getMachine() async {
@@ -127,9 +120,7 @@ class MachineRepository {
           machineName: machineName[i],
           machineDescription: machineDescription[i],
           machineType: machineType[i],
-          isReservations: isAllAvailable(reservation[i].toList())));
-
-
+          isReservations: reservation[i].toList()));
     }
 
     return machineImages;

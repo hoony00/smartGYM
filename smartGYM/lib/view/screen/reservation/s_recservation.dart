@@ -49,6 +49,9 @@ class _ReservationList extends StatelessWidget {
       child: ListView.builder(
         itemCount: machineList.length,
         itemBuilder: (context, index) {
+
+          final isAvailable = isAllAvailable(machineList[index].isReservations);
+
           final machine = machineList[index];
 
           return Padding(
@@ -108,13 +111,13 @@ class _ReservationList extends StatelessWidget {
                                       borderRadius: BorderRadius.all(Radius.circular(10.0)),
                                     ),
                                   ),
-                                  onPressed: machine.isReservations ? null : () {
+                                  onPressed: isAvailable ? null : () {
                                     context.push('/reservation/detail/${machine.machineName}');
 
 
                                   }, // 예약 가능 여부에 따라 onPressed 설정
                                   child: Text(
-                                    machine.isReservations ? '예약 불가' : '시간 선택',
+                                    isAvailable ? '예약 불가' : '시간 선택',
                                     style: const TextStyle(
                                       color: ColorPalette.white,
                                     ),
@@ -137,5 +140,14 @@ class _ReservationList extends StatelessWidget {
         },
       ),
     );
+  }
+
+  bool isAllAvailable(List<bool> reservation) {
+    for (bool isReserved in reservation) {
+      if (!isReserved) {
+        return false;
+      }
+    }
+    return true;
   }
 }

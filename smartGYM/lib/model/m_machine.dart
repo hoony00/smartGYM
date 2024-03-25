@@ -6,7 +6,7 @@ class MachineModel {
   final String machineName;
   final String machineDescription;
   final String machineType;
-  final bool isReservations;
+  final List<bool> isReservations; // 각 시간별 예약 가능 여부
 
   MachineModel(
       {required this.machineImageUrl,
