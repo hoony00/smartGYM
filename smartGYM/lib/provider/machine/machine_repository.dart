@@ -7,21 +7,21 @@ class MachineRepository {
   final Ref _ref;
   final imagesUrl = <String>[
     //1
-    'ArmCurl',
+    'assets/images/machine/ArmCurl.png',
     //2
-    'LateralRaise',
+    'assets/images/machine/LateralRaise.png',
     //3
-    'Pec-DecFly',
+    'assets/images/machine/Pec-DecFly.png',
     //4
-    'LatPullDown',
+    'assets/images/machine/LatPullDown.png',
     //5
-    'PullUpMachine',
+    'assets/images/machine/PullUpMachine.png',
     //6
-    'SeatedRow',
+    'assets/images/machine/SeatedRow.png',
     //7
-    'ShoulderPress',
+    'assets/images/machine/ShoulderPress.png',
     //8
-    'SmithMachine'
+    'assets/images/machine/SmithMachine.png'
   ];
 
   final machineName = <String>[

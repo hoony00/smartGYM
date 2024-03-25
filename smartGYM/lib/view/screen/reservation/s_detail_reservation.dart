@@ -37,10 +37,13 @@ class _DetailMachineReservationState
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Image.asset(
-                    'assets/images/machine/${machine.machineImageUrl}.png',
-                    fit: BoxFit.contain,
-                    height: 250.0,
+                  Hero(
+                    tag: machine.machineImageUrl,
+                    child: Image.asset(
+                      machine.machineImageUrl,
+                      fit: BoxFit.contain,
+                      height: 250.0,
+                    ),
                   ),
                   const SizedBox(height: 16.0),
                   Text(machine.machineDescription,

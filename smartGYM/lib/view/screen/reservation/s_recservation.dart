@@ -63,17 +63,19 @@ class _ReservationList extends StatelessWidget {
                   Row(
                     children: [
                       // Image with appropriate sizing
-                      Container(
-                        height: 100,
-                        width: 100,
-                        clipBehavior: Clip.antiAlias,
-                        // Prevent image overflow
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
-                        child: Image.asset(
-                          'assets/images/machine/${machine.machineImageUrl}.png',
-                          fit: BoxFit.contain,
+                      Hero( // Wrap image with Hero widget
+                        tag: machine.machineImageUrl, // Set unique tag
+                        child: Container(
+                          height: 100,
+                          width: 100,
+                          clipBehavior: Clip.antiAlias,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          child: Image.asset(
+                            machine.machineImageUrl,
+                            fit: BoxFit.contain,
+                          ),
                         ),
                       ),
 
