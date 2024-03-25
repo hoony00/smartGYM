@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gym_app/common/colors/color_palette.dart';
+import 'package:gym_app/model/m_auth.dart';
 import 'package:gym_app/model/m_machine.dart';
+import 'package:gym_app/provider/auth/auth_provider.dart';
+import 'package:gym_app/view/screen/reservation/w_detail/TimeSlotTile.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../provider/machine/machine_provider.dart';
@@ -21,7 +24,7 @@ class _DetailMachineReservationState
   @override
   Widget build(BuildContext context) {
     final MachineModel machine = ref
-        .read(machineListProvider.notifier)
+        .watch(machineListProvider.notifier)
         .getMachineByName(widget.machineName);
 
     return Scaffold(
@@ -40,9 +43,9 @@ class _DetailMachineReservationState
                 Text('시간 선택', style: TextStyle(fontSize: 15, color: ColorPalette.primaryColor),),
               ],
             ),
-            _buildTimeSlotTile(0, machine.isReservations[0]),
-            _buildTimeSlotTile(1, machine.isReservations[1]),
-            _buildTimeSlotTile(2, machine.isReservations[2]),
+            TimeSlotTile(timeIndex: 0, machineName: machine.machineName,),
+            TimeSlotTile(timeIndex: 1, machineName: machine.machineName,),
+            TimeSlotTile(timeIndex: 2, machineName: machine.machineName,),
             BottomAppBar(
               height: 50.0,
               child: Row(
@@ -64,52 +67,10 @@ class _DetailMachineReservationState
     );
   }
 
-  Widget _buildTimeSlotTile(int timeIndex, bool isReserved) {
-    final startTime = _calculateStartTime(timeIndex);
-
-    return ListTile(
-      title: Row(
-        children: [
-          Text(startTime),
-        ],
-      ),
-      trailing: ElevatedButton(
-        onPressed: isReserved ? null : () => _handleReservation(timeIndex),
-        // Adjust for 0-based index
-        child: Text(isReserved ? '예약 불가' : '예약하기'),
-      ),
-    );
-  }
-
-
-
-  String _calculateStartTime(int timeIndex) {
-
-    final timeOfHours = DateTime.now().hour;
-
-    // 하드코딩된 종료 시간을 반환합니다.
-    switch (timeIndex) {
-      case 0:
-        return '$timeOfHours:00 - ${timeOfHours}:10';
-      case 1:
-        return '$timeOfHours:20 - ${timeOfHours}:30';
-      case 2:
-        return '$timeOfHours:40 - ${timeOfHours}:50';
-      default:
-        {
-          throw Exception('Invalid time index');
-        }
-    }
-  }
 
 
 
 
-
-  void _handleReservation(int timeIndex) {
-    print('$timeIndex');
-    // Implement reservation logic here
-  }
 }
 
 class _MachineImages extends StatelessWidget {

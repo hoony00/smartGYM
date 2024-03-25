@@ -1,4 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:gym_app/model/m_auth.dart';
 import 'package:gym_app/model/m_machine.dart';
 
 import 'machine_repository.dart';
@@ -32,6 +33,14 @@ class MachineStateNotifier extends StateNotifier<List<MachineModel>> {
   // 머신 이름으로 머신 정보 가져오기
   MachineModel getMachineByName(String name) {
     return state.firstWhere((machine) => machine.machineName == name);
+  }
+
+  // 예약 상태 바꾸기
+  void changeReservation(String machineName, int index, AuthModel authModel) {
+    final authUser = authModel.uid;
+    final machine = state.firstWhere((machine) => machine.machineName == machineName);
+    machine.isReservations[index] = !machine.isReservations[index];
+    state = List.from(state);
   }
 
 }
