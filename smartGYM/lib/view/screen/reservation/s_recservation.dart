@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gym_app/common/colors/color_palette.dart';
-import 'package:gym_app/model/machine_images.dart';
+import 'package:gym_app/model/m_machine.dart';
 import 'package:gym_app/widget/w_appBar.dart';
 
 import '../../../provider/machine/machine_provider.dart';
@@ -99,20 +99,25 @@ class _ReservationList extends StatelessWidget {
                                 Text('#${machine.machineType}',
                                     style: const TextStyle(fontSize: 15.0)),
                                 ElevatedButton(
-                                    onPressed: () {},
-                                    child: machine.isReservations
-                                        ? const Text(
-                                      '예약불가',
-                                      style: TextStyle(
-                                          color:
-                                          ColorPalette.primaryColor),
-                                    )
-                                        : const Text(
-                                      '예약가능',
-                                      style: TextStyle(
-                                          color:
-                                          ColorPalette.secondColor),
-                                    )),
+                                  style: ElevatedButton.styleFrom(
+                                    elevation: 0.0,
+                                    backgroundColor: ColorPalette.primaryColor.withOpacity(0.5),
+                                    foregroundColor: Colors.white,
+                                    shape: const RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                                    ),
+                                  ),
+                                  onPressed: machine.isReservations ? null : () {
+                                    print('${machine.machineName} 예약하기');
+                                  }, // 예약 가능 여부에 따라 onPressed 설정
+                                  child: Text(
+                                    machine.isReservations ? '예약 불가' : '시간 선택',
+                                    style: const TextStyle(
+                                      color: ColorPalette.white,
+                                    ),
+                                  ),
+                                ),
+
                               ],
                             ),
                           ],

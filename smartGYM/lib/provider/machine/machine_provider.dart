@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:gym_app/model/machine_images.dart';
+import 'package:gym_app/model/m_machine.dart';
 
 import 'machine_repository.dart';
 
